@@ -27,8 +27,3 @@
   border-radius: 50%;
 }
 
-.logo {
-  display: flex;
-  gap: 5px;
-  justify-content: space-around;
-}
