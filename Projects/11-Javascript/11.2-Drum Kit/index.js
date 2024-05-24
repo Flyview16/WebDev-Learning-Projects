@@ -32,6 +32,16 @@ function playsound(key) {
       console.log(this.innerHTML);
   }
 }
+// Function to add animation to buttons
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+
+  // Remove pressed key design to animate button
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
 
 // Detecting button press
 var numberOfDrums = document.querySelectorAll(".drum").length;
@@ -39,10 +49,12 @@ for (var i = 0; i < numberOfDrums; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var buttonInnerHtml = this.innerHTML;
     playsound(buttonInnerHtml);
+    buttonAnimation(buttonInnerHtml);
   });
 }
 
 // Detecting key press
 document.addEventListener("keypress", function (event) {
   playsound(event.key);
+  buttonAnimation(event.key);
 });
