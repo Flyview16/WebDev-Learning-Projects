@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const { url } = require("inspector");
+const config = require("../config");
 
 const app = express();
 app.use(express.static("public"));
@@ -30,12 +31,13 @@ app.post("/", (req, res) => {
     };
 
     var jsonData = JSON.stringify(data);
-    
-    const url = "https://us11.api.mailchimp.com/3.0/lists/b08d861f91"
+
+    const listId = config.mailChimp.listId;
+    const url = `https://us11.api.mailchimp.com/3.0/lists/${listId}`;
 
     const options = {
         method: "POST",
-        auth: "flyview16:747a74515891a4f513bdb55c0c870bb6-us11"
+        auth: `flyview16:${config.mailChimp.apikey}`
     }
 
     const request = https.request(url, options, function(response) {
@@ -69,8 +71,3 @@ app.listen(3000, function(){
 
 
 
-// Api key
-// 747a74515891a4f513bdb55c0c870bb6-us11
-
-// List id
-// b08d861f91
