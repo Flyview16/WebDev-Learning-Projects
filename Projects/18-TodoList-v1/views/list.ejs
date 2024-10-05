@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List</title>
-  </head>
-  <body>
-    <h1>It's a <%= kindofday %>!</h1>
-  </body>
-</html>
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <h1><%= listTitle %></h1>
+</div>
+
+<div class="box">
+  <% for (newItem of newListItems){ %>
+  <div class="item">
+    <input type="checkbox" />
+    <p><%= newItem %></p>
+  </div>
+
+  <% } %>
+
+  <form class="item" action="/" method="post">
+    <input
+      type="text"
+      placeholder="New list item"
+      name="listItem"
+      autocomplete="off"
+    />
+    <button type="submit">+</button>
+  </form>
+</div>
+
+<%- include("footer") -%>
