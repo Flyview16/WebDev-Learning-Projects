@@ -15,6 +15,11 @@
     color: #1abc9c !important;
 }
 
+h1, p, form{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
 .footer-padding {
 	padding-bottom: 60px;
 }
