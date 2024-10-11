@@ -17,7 +17,7 @@ const fruitSchema = new mongoose.Schema({
         required: true
     },
     rating: {
-        type: Number,
+        type: Number,   
         min: 1,
         max: 10
     },
