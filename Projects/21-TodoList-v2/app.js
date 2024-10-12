@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Connecting to mongoDB
-const mongoURI = config.mongodb.uri;
+const mongoURI = config.mongodb.atlasUri;
 
 mongoose.connect(mongoURI)
 .then(() => console.log("Successfully connected to MongoDB"))
